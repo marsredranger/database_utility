@@ -3,4 +3,7 @@
 touch .env
 touch .config
 
+mkdir ./logs/
+mkdir ./data/dump
+mkdir ./data/sql_scripts
 
