@@ -1,0 +1,6 @@
+#! /usr/bin/bash
+
+. .env
+ mysql -h '10.0.0.248' -P ${HOST_PORT} --protocol=tcp -u root --password=${MYSQL_ROOT_PASSWORD}
+#
+# mysql -P 6033 --protocol=tcp -u root -ppassword

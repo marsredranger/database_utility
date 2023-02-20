@@ -1,0 +1,8 @@
+#! /bin/bash
+
+. .env
+
+DATABASE=$1
+OUTPUT_FILE_PATH=$2
+
+docker exec db_1 /usr/bin/mysqldump -u root --password=${MYSQL_ROOT_PASSWORD} $DATABASE >> $OUTPUT_FILE_PATH

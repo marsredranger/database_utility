@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db_1:
+    image: percona:5.7
+    container_name: ${CONTAINER_NAME}
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+      - ./data:/docker-entrypoint-initdb.d
+    ports:
+      - ${HOST_PORT}:${CONTAINER_PORT}
+    ulimits:
+      nofile:
+        soft: 20000
+        hard: 20000
+

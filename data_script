@@ -1,0 +1,12 @@
+#! /bin/bash
+
+. .env
+. .config
+
+DATA_FILE_PATH=$1
+DATABASE_NAME=$2
+
+echo "Starting data script." >> ${LOG_PATH}${LOG_FILE}
+echo "Database Name: ${DATABASE_NAME}" >> ${LOG_PATH}${LOG_FILE}
+echo "SQL File: ${DATA_FILE_PATH}" >> ${LOG_PATH}${LOG_FILE}
+mysql -h ${DB_HOST} -P ${HOST_PORT} --protocol=tcp -u root --password=${MYSQL_ROOT_PASSWORD} --verbose ${DATABASE_NAME} < ${DATA_FILE_PATH} >> ${LOG_DIR}${DATA_SCRIPT_LOG_FILE}
