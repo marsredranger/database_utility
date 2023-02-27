@@ -14,6 +14,7 @@ Utility designed to set up mysql v5.7 database, quickly, for use in development 
 ## Set-up Steps
 1. run set-up script
 set up script will create the following directories and files
+./logs/
 ./.env 
 ./.config
 
@@ -26,6 +27,7 @@ MYSQL_PASSWORD=password
 DB_HOST='10.0.0.248'
 HOST_PORT='3306'
 CONTAINER_PORT='3306'
+CONTAINER_NAME='TEST_CONTAINER'
 ```
 
 3. Populate .config with the following variables:
