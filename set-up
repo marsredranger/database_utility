@@ -1,9 +1,17 @@
 #! bin/bash
  
-touch .env
-touch .config
+touch -a .env
+touch -a .config
 
-mkdir ./logs/
-mkdir ./data/dump
-mkdir ./data/sql_scripts
+LOG_PATH=$PWD/logs/$CONTAINER_NAME
+DATA_DUMP_PATH=$PWD/data/$CONTAINER_NAME/dump
+SQL_SCRIPT_PATH=$PWD/data/$CONTAINER_NAME/sql_scripts
+
+echo "Creating log directory: ${LOG_PATH}"
+echo "Creating data dump directory: ${DATA_DUMP_PATH}"
+echo "Creating sql script directory: ${SQL_SCRIPT_PATH}"
+
+mkdir -p $LOG_PATH
+mkdir -p $DATA_DUMP_PATH
+mkdir -p $SQL_SCRIPT_PATH
 

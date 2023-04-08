@@ -1,10 +1,13 @@
 #! /bin/bash
 
 . .config
-#LOG_DIR=./logs/;
-#LOG_FILE=docker_compose_logs.log
+. .env
+
+LOG_OUTPUT_PATH="$PWD/logs/$CONTAINER_NAME/$DOCKER_COMPOSE_LOGS_FILE_NAME"
+
+echo "LOG_OUTPUT_PATH=$LOG_OUTPUT_PATH"
 
 docker-compose --env-file .env up -d
-echo "Saving logs to ${LOG_DIR}${DOCKER_COMPOSE_LOGS_FILE_PATH}"
 
-docker-compose logs -t -f --no-color >> ${LOG_DIR}${DOCKER_COMPOSE_LOGS_FILE_PATH} &
+docker-compose logs -t -f --no-color >> ${LOG_OUTPUT_PATH} &
+
