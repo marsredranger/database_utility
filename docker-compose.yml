@@ -14,7 +14,7 @@ services:
     ports:
       - "${HOST_PORT}:${CONTAINER_PORT}"
     volumes:
-      - data/${CONTAINER_NAME}:/database
+      - db2data:/database
 volumes:
   db2data:
 
